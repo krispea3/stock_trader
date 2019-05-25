@@ -5,7 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    funds: 10000
+  },
+  getters: {
+    funds: state => {
+      return state.funds
+    }
   },
   mutations: {
 
