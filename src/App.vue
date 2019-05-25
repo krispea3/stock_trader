@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col sm mx-auto">
+  <b-container>
+    <b-row>
+      <b-col>
             <app-header></app-header>
             <router-view></router-view>
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

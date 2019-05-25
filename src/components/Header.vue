@@ -43,6 +43,7 @@
                     <b-dropdown-item>Save</b-dropdown-item>
                     <b-dropdown-item>Load</b-dropdown-item>
                 </b-nav-item-dropdown>
+                <li class="nav-item"><a class="nav-link"><strong>Funds: {{ funds | currency }}</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -50,6 +51,11 @@
 
 <script>
 export default {
+  computed: {
+    funds () {
+      return this.$store.getters.funds
+    }
+  },
   methods: {
     endDay () {
       alert('Ended day!')
