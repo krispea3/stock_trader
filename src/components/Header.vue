@@ -1,52 +1,30 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-lg mt-4 mb-4">
-        <router-link class="navbar-brand" to="/">Stock Trader</router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="mt-4 mb-4">
+        <b-navbar toggleable="lg" type="dark" variant="dark" class="rounded">
+            <b-navbar-brand to="/">Stock Trader</b-navbar-brand>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-                <li class="nav-item">
-                    <router-link class="nav-link"
-                                active-class="active"
-                                to="/portfolio">
-                                Portfolio
-                    </router-link>
-                </li>
+            <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+                <b-nav-item to="/portfolio">Portfolio</b-nav-item>
+                <b-nav-item to="/stocks">Stocks</b-nav-item>
+            </b-navbar-nav>
 
-                <li class="nav-item">
-                    <router-link class="nav-link"
-                                active-class="active"
-                                to="/stocks">
-                                Stocks
-                    </router-link>
-                </li>
-            </ul>
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item @click="endDay" href="#">End Day</b-nav-item>
 
-            <ul class="navbar-nav">
-
-                <li class="nav-item">
-                    <a class="nav-link"
-                        href="#"
-                        @click="endDay">
-                        End Day
-                    </a>
-                </li>
-
-                <b-nav-item-dropdown
-                            id="my-nav-dropdown"
-                            text="Save & Load"
-                            toggle-class="nav-link-custom"
-                            right>
-                    <b-dropdown-item>Save</b-dropdown-item>
-                    <b-dropdown-item>Load</b-dropdown-item>
+                <b-nav-item-dropdown text="Save & Load" right class="mr-2">
+                    <b-dropdown-item href="#">Save</b-dropdown-item>
+                    <b-dropdown-item href="#">Load</b-dropdown-item>
                 </b-nav-item-dropdown>
-                <li class="nav-item"><a class="nav-link"><strong>Funds: {{ funds | currency }}</strong></a></li>
-            </ul>
-        </div>
-    </nav>
+
+                <b-nav-text><strong>Funds: {{ funds | currency }}</strong></b-nav-text>
+            </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
+    </div>
 </template>
 
 <script>
