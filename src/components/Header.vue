@@ -1,6 +1,6 @@
 <template>
     <div class="mt-4 mb-4">
-        <b-navbar toggleable="lg" type="dark" variant="dark" class="rounded">
+        <b-navbar toggleable="lg" type="light" variant="light" class="rounded">
             <b-navbar-brand to="/">Stock Trader</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
