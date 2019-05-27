@@ -38,7 +38,11 @@ export default new Vuex.Store({
     },
     setPortfolio: (state, portfolio) => {
       if (portfolio) {
-        state.portfolio = portfolio
+        // just write id and quantity in portolio
+        const data = portfolio.map(item => {
+          return ({ id: item.id, quantity: item.quantity })
+        })
+        state.portfolio = data
       } else {
         state.portfolio = []
       }
