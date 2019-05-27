@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     getPortfolio () {
-      return this.$store.getters.portfolio
+      return this.$store.getters.stockPortfolio
     }
   }
 }

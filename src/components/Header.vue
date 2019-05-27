@@ -16,8 +16,8 @@
                 <b-nav-item @click="endDay" href="#">End Day</b-nav-item>
 
                 <b-nav-item-dropdown text="Save & Load" right class="mr-2">
-                    <b-dropdown-item href="#">Save</b-dropdown-item>
-                    <b-dropdown-item href="#">Load</b-dropdown-item>
+                    <b-dropdown-item @click="saveData" href="#">Save</b-dropdown-item>
+                    <b-dropdown-item @click="loadData" href="#">Load</b-dropdown-item>
                 </b-nav-item-dropdown>
 
                 <b-nav-text><strong>Funds: {{ funds | currency }}</strong></b-nav-text>
@@ -36,7 +36,25 @@ export default {
   },
   methods: {
     endDay () {
-      alert('Ended day!')
+      this.$store.dispatch('randomiseStocks')
+    },
+    loadData () {
+      this.$store.dispatch('loadData')
+    },
+    saveData () {
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      }
+      this.axios.put('data.json', data)
+        .then(response => {
+          alert('Data saved!')
+        })
+        .catch(error => {
+          alert('Ooops something went wrong, please try again later')
+          console.log(error)
+        })
     }
   }
 }

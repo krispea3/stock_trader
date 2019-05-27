@@ -5,15 +5,11 @@
 </template>
 
 <script>
-import stocks from '../data/stocks'
 import Stock from '../components/Stock'
 
 export default {
   components: {
     'appStock': Stock
-  },
-  created () {
-    this.$store.dispatch('initStocks', stocks)
   },
   computed: {
     stocks () {
